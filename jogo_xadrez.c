@@ -7,7 +7,7 @@ int main() {
     int casasRainha = 8;
 
     
-    // Torre: usando FOR
+    // Torre: usando FOR 
     printf("Movimento da Torre:\n");
     for (int i = 1; i <= casasTorre; i++) {
         printf("Direita\n");

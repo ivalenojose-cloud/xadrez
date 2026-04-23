@@ -1,51 +1,58 @@
 #include <stdio.h>
 
 int main() {
-    // Número de casas para cada peça
+    // Variáveis para número de casas
     int casasTorre = 5;
     int casasBispo = 5;
     int casasRainha = 8;
-
-    // Movimento do Cavalo (2 para baixo, 1 para esquerda)
     int casasBaixoCavalo = 2;
     int casasEsquerdaCavalo = 1;
 
-    // Torre: usando FOR
-    printf("Movimento da Torre:\n");
-    for (int i = 1; i <= casasTorre; i++) {
-        printf("Direita\n");
-    }
+    // Variáveis para escolha do usuário
+    char peca[20];
+    char direcao[20];
 
-    // Bispo: usando WHILE
-    printf("\nMovimento do Bispo:\n");
-    int j = 1;
-    while (j <= casasBispo) {
-        printf("Cima\n");
-        printf("Direita\n");
-        j++;
-    }
+    // Pergunta ao usuário
+    printf("Qual peça você gostaria de movimentar (Torre, Bispo, Rainha, Cavalo)? ");
+    scanf("%s", peca);
 
-    // Rainha: usando DO-WHILE
-    printf("\nMovimento da Rainha:\n");
-    int k = 1;
-    do {
-        printf("Esquerda\n");
-        k++;
-    } while (k <= casasRainha);
+    printf("Em qual direção deseja movimentar (Direita, Esquerda, Cima, Baixo)? ");
+    scanf("%s", direcao);
 
-    // Cavalo: usando loops aninhados
-    printf("\nMovimento do Cavalo:\n");
-
-    // Primeiro loop FOR para as duas casas para baixo
-    for (int i = 1; i <= casasBaixoCavalo; i++) {
-        printf("Baixo\n");
-    }
-
-    // Loop WHILE aninhado para a casa à esquerda
-    int l = 1;
-    while (l <= casasEsquerdaCavalo) {
-        printf("Esquerda\n");
-        l++;
+    // Lógica para cada peça
+    if (strcmp(peca, "Torre") == 0) {
+        printf("\nMovimento da Torre:\n");
+        for (int i = 1; i <= casasTorre; i++) {
+            printf("%s\n", direcao);
+        }
+    } else if (strcmp(peca, "Bispo") == 0) {
+        printf("\nMovimento do Bispo:\n");
+        int j = 1;
+        while (j <= casasBispo) {
+            printf("%s\n", direcao);
+            j++;
+        }
+    } else if (strcmp(peca, "Rainha") == 0) {
+        printf("\nMovimento da Rainha:\n");
+        int k = 1;
+        do {
+            printf("%s\n", direcao);
+            k++;
+        } while (k <= casasRainha);
+    } else if (strcmp(peca, "Cavalo") == 0) {
+        printf("\nMovimento do Cavalo:\n");
+        // Dois movimentos para baixo
+        for (int i = 1; i <= casasBaixoCavalo; i++) {
+            printf("Baixo\n");
+        }
+        // Um movimento para esquerda
+        int l = 1;
+        while (l <= casasEsquerdaCavalo) {
+            printf("Esquerda\n");
+            l++;
+        }
+    } else {
+        printf("\nPeça inválida!\n");
     }
 
     return 0;
